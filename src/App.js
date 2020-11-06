@@ -1,34 +1,20 @@
 import React from 'react';
 import './App.css';
 
+
 const App = () => {
     return (
-        <div>
-            <div><Header /></div>
-            <Technologies />
-                    </div>
-    );
-}
-
-const Technologies = () =>{
-    return (
-        <div >
-            <ul>
-                <li>css</li>
-                <li>html</li>
-                <li>js</li>
-                <li>react</li>
-            </ul>
-        </div>
-    )
-}
-
-const Header = () => {
-    return (
-        <div>
-            <a href="">Home</a>
-            <a href="">News Feed</a>
-            <a href="">Messages</a>
+        <div className='app-wrapper'>
+            <header className='header'>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTubyb9WhTgpvPRNhyJziWioWCHhAXMgY7zSg&usqp=CAU" alt=""/>
+            </header>
+            <nav className='nav'>
+                <div>Profile</div>
+                <div>Messages</div>
+            </nav>
+            <div className='content'>
+                Main content
+            </div>
         </div>
     );
 }
