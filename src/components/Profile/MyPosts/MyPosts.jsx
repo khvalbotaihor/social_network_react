@@ -12,11 +12,13 @@ export const MyPosts = () => {
             <button>Remove</button>
         </div>
         <div className={classes.posts}>
-            <div className={classes.item}>post 1</div>
-            <div className={classes.item}>post 2</div>
-            <div className={classes.item}>post 2</div>
-            <div className={classes.item}>post 2</div>
-            <div className={classes.item}>post 2</div>
+            <div className={classes.item}>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRbJjaUVrc9az_B1Rqphs0EULawVrCg_mBMIg&usqp=CAU" alt=""/>
+                post 1</div>
+            <div className="item">post 2</div>
+            <div className="item">post 2</div>
+            <div className="item">post 2</div>
+            <div className="item">post 2</div>
         </div>
     </div>)
 }
