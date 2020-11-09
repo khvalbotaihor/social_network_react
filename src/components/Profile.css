@@ -1,0 +1,13 @@
+.content {
+    grid-area: c;
+    background-color: mediumspringgreen;
+
+}
+
+.content img {
+    width: 100%
+}
+
+.item{
+
+}
