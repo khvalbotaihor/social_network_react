@@ -5,9 +5,8 @@ import MyPost from "./Post/MyPosts";
 export const MyPosts = () => {
     return (<div>
             <div className={classes.item}>
-                <MyPost />
-                <MyPost />
-                <MyPost />
+                <MyPost message="Hi, how are you?"/>
+                <MyPost message="It's my first post"/>
             </div>
         </div>
     )
