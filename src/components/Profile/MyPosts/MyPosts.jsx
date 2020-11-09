@@ -5,10 +5,17 @@ export const MyPosts = () => {
     return (<div>
         my posts
         <div>
-            New Post
+            <textarea>
+
+            </textarea>
+            <button>Add post</button>
+            <button>Remove</button>
         </div>
         <div className={classes.posts}>
             <div className={classes.item}>post 1</div>
+            <div className={classes.item}>post 2</div>
+            <div className={classes.item}>post 2</div>
+            <div className={classes.item}>post 2</div>
             <div className={classes.item}>post 2</div>
         </div>
     </div>)
