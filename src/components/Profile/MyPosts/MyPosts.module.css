@@ -1,7 +1,12 @@
 
 .item{
     color: greenyellow;
+    margin-top: 10px;
 }
 .item img{
    width: 50px;
+}
+
+.postsBlock {
+    padding: 10px;
 }

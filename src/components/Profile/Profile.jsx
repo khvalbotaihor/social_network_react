@@ -1,17 +1,14 @@
 import React from "react";
 import classes from "./Profile.module.css";
 import MyPosts from "./MyPosts/MyPosts";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
-export const Profile = () =>{
+
+export const Profile = () => {
     return (
         <div className={classes.content}>
-            <div>
-                <img src="https://i.pinimg.com/originals/31/d8/07/31d8075c82022692d2056edebd26d995.jpg" alt=""/>
-            </div>
-            <div>
-                ava + description
-            </div>
-            <MyPosts hey="Yo"/>
+            <ProfileInfo />
+            <MyPosts />
         </div>
     )
 }
