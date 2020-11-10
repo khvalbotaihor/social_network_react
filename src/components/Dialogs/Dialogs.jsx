@@ -25,14 +25,24 @@ const Dialogs = (props) => {
     // ето мир данних, ето BLL(DATA)
     // также у нас есть UI
     let dialogsData = [
-        {id: 1,name: 'Dimich'},
-        {id: 2,name: 'Andrey'},
-        {id: 3,name: 'Sveta'},
-        {id: 4,name: 'Sasha'},
-        {id: 5,name: 'Victor'},
-        {id: 6,name: 'Valera'},
-        ]
-let dialog = dialogsData.map(e => <DialogItem name={e.name} id={e.id} />)
+        {id: 1, name: 'Dimich'},
+        {id: 2, name: 'Andrey'},
+        {id: 3, name: 'Sveta'},
+        {id: 4, name: 'Sasha'},
+        {id: 5, name: 'Victor'},
+        {id: 6, name: 'Valera'},
+    ]
+
+    let messagesData = [
+        {id: 1, message: "Hi"},
+        {id: 2, message: "How is your it-kamasutra?"},
+        {id: 3, message: "Yo!!!"},
+        {id: 3, message: "Yo!!!"},
+        {id: 3, message: "Yo!!!"},
+    ]
+
+
+    let dialog = dialogsData.map((e,index) => <DialogItem name={e.name} id={e.id} key={index}/>)
 
     return (
         <div className={s.dialogs}>
@@ -48,8 +58,8 @@ let dialog = dialogsData.map(e => <DialogItem name={e.name} id={e.id} />)
 
             </div>
             <div className={s.messages}>
-                <Message message="Hi"/>
-                <Message message="How is your it-kamasutra?"/>
+                <Message message={messagesData[0].message}/>
+                <Message message={messagesData[1].message}/>
                 <Message message="Yo!!!"/>
             </div>
         </div>
