@@ -1,0 +1,21 @@
+.mess {
+    padding: 10px;
+}
+
+.messages.message {
+    color: white;
+}
+
+
+.commentIcon {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0 12px 5px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #ccc;
+    box-shadow: 0px 0px 0px 18px #eee inset;
+    border-radius: 50%;
+}
+

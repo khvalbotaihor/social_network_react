@@ -1,0 +1,26 @@
+.container{
+    display: grid;
+    grid-template-columns: 4fr 4fr 4fr;
+}
+
+
+.friends{
+
+
+}
+
+
+.friendStyle {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 50px 0 25px 0;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+.name{
+    text-align: center;
+
+}
