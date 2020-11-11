@@ -4,8 +4,6 @@ import Post from "./Post/MyPosts";
 
 export const MyPosts = (props) => {
 
-
-
     let postsElement =
         props.posts.map((p, index) => <Post message={p.message} likesCount={p.likesCount} key={index}/>)
 
@@ -18,7 +16,6 @@ export const MyPosts = (props) => {
                     <button>Add post</button>
                 </div>
             </div>
-
             <div className={classes.item}>
                 {postsElement}
             </div>
