@@ -1,4 +1,6 @@
-import {rerenderEntireTree} from "../render";
+let rerenderEntireTree = () =>{
+    console.log("State modified");
+}
 
 let state = {
     profilePage:{
@@ -60,7 +62,7 @@ export let updateNewPostText = (newText) => {
 }
 
 
-export let addMessage = () => {
+export const addMessage = () => {
     let newMessage = {
         id:9,
         message: state.dialogsPage.newMessageText
@@ -71,10 +73,17 @@ export let addMessage = () => {
     rerenderEntireTree(state)
 }
 
-export let updateNewMessage = (newText) =>{
+export const updateNewMessage = (newText) =>{
     state.dialogsPage.newMessageText=newText;
     rerenderEntireTree(state)
 
 }
 
+export const subscribe = (observer) => {
+    rerenderEntireTree=observer;  // pattern observer, наблюжатель, button.addEventListener similar to publisher-subscriber
+}
+
+
 export default state;
+
+// store -it's an oop store
