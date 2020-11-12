@@ -46,35 +46,35 @@ let store = {
     addPost() {
         let newPost = {
             id: 5,
-            message: store.getState().profilePage.newPostText,
+            message: this._state.profilePage.newPostText,
             likesCount: 0
         }
 
-        store.getState().profilePage.posts.push(newPost);
-        store.getState().profilePage.newPostText = "";
-        store.rerenderEntireTree(store.getState())
+        this._state.profilePage.posts.push(newPost);
+        this._state.profilePage.newPostText = "";
+        store.rerenderEntireTree(this._state)
     },
     updateNewPostText(newText) {
-        store.getState().profilePage.newPostText = newText;
-        store.rerenderEntireTree(store.getState())
+        this.getState().profilePage.newPostText = newText;
+        this.rerenderEntireTree(this._state)
     },
     addMessage() {
         let newMessage = {
             id: 9,
-            message: store.getState().dialogsPage.newMessageText
+            message: this._state.dialogsPage.newMessageText
         }
 
-        store.getState().dialogsPage.messages.push(newMessage);
-        store.getState().dialogsPage.newMessageText = "";
-        store.rerenderEntireTree(store.getState())
+        this._state.dialogsPage.messages.push(newMessage);
+        this._state.dialogsPage.newMessageText = "";
+        this.rerenderEntireTree(this._state)
     },
     updateNewMessage(newText) {
-        store.getState().dialogsPage.newMessageText = newText;
-        store.rerenderEntireTree(store.getState())
+        this._state.dialogsPage.newMessageText = newText;
+        this.rerenderEntireTree(this._state)
 
     },
     subscribe(observer) {
-        store.rerenderEntireTree = observer;  // pattern observer, наблюжатель, button.addEventListener similar to publisher-subscriber
+        this.rerenderEntireTree = observer;  // pattern observer, наблюжатель, button.addEventListener similar to publisher-subscriber
     }
 }
 
