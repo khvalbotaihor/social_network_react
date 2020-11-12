@@ -1,10 +1,10 @@
 import React from 'react';
-import {store} from "./redux/state";
+import store from "./redux/state";
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-let sta = store.state;
+let sta = store.getState();
 
 let rerenderEntireTree = (sta) =>{
     ReactDOM.render(
@@ -15,5 +15,5 @@ let rerenderEntireTree = (sta) =>{
     );
 }
 
-rerenderEntireTree(store.state);
+rerenderEntireTree(store.getState());
 store.subscribe(rerenderEntireTree);
