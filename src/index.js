@@ -4,12 +4,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-let sta = store.getState();
-
-let rerenderEntireTree = (sta) =>{
+let rerenderEntireTree = (state) =>{
     ReactDOM.render(
         <React.StrictMode>
-            <App store={store} />
+            <App
+                state={state}
+                addPost={store.addPost.bind(store)}
+                updateNewPostText = {store.updateNewPostText.bind(store)}
+                addMessage={store.addMessage.bind(store)}
+                updateNewMessage={store.updateNewMessage.bind(store)}
+            />
         </React.StrictMode>,
         document.getElementById('root')
     );

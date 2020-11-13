@@ -40,10 +40,11 @@ let store = {
     getState(){
         return this._state
     },
-    rerenderEntireTree() {
+    _callSubscriber() {
         console.log("State modified");
     },
     addPost() {
+        debugger;
         let newPost = {
             id: 5,
             message: this._state.profilePage.newPostText,
@@ -52,11 +53,11 @@ let store = {
 
         this._state.profilePage.posts.push(newPost);
         this._state.profilePage.newPostText = "";
-        store.rerenderEntireTree(this._state)
+        store._callSubscriber(this._state)
     },
     updateNewPostText(newText) {
-        this.getState().profilePage.newPostText = newText;
-        this.rerenderEntireTree(this._state)
+        this._state.profilePage.newPostText = newText;
+        this._callSubscriber(this._state)
     },
     addMessage() {
         let newMessage = {
@@ -66,15 +67,15 @@ let store = {
 
         this._state.dialogsPage.messages.push(newMessage);
         this._state.dialogsPage.newMessageText = "";
-        this.rerenderEntireTree(this._state)
+        this._callSubscriber(this._state)
     },
     updateNewMessage(newText) {
         this._state.dialogsPage.newMessageText = newText;
-        this.rerenderEntireTree(this._state)
+        this._callSubscriber(this._state)
 
     },
     subscribe(observer) {
-        this.rerenderEntireTree = observer;  // pattern observer, наблюжатель, button.addEventListener similar to publisher-subscriber
+        this._callSubscriber = observer;  // pattern observer, наблюжатель, button.addEventListener similar to publisher-subscriber
     }
 }
 
