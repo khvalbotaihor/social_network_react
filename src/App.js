@@ -8,7 +8,6 @@ import {BrowserRouter, Route} from "react-router-dom";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
-import store from "./redux/state";
 
 const App = (props) => {
     return (
@@ -27,8 +26,8 @@ const App = (props) => {
                     <Route path="/profile"
                            render={() => <Profile
                                profilePage={props.state.profilePage}
-                               addPost={store.addPost}
-                               updateNewPostText = {store.updateNewPostText}
+                               addPost={props.addPost}
+                               updateNewPostText = {props.updateNewPostText}
                            />}/>
                     <Route path="/music" component={Music}/>
                     <Route path="/news" component={News}/>
