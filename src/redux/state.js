@@ -75,7 +75,7 @@ let store = {
             this._callSubscriber(this._state)
         }
         else if (action.type === "UPDATE-NEW-MESSAGE") {
-            this._state.dialogsPage.newMessageText = newText;
+            this._state.dialogsPage.newMessageText = action.newText;
             this._callSubscriber(this._state)
         }
     }
