@@ -1,7 +1,7 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
-let ADD_MESSAGE = "ADD-MESSAGE";
-let UPDATE_NEW_MESSAGE = "UPDATE-NEW-MESSAGE";
+let SEND_MESSAGE = "SEND-MESSAGE";
+let UPDATE_NEW_MESSAGE_BODY = "UPDATE-NEW-MESSAGE-BODY";
 
 
 
@@ -24,7 +24,7 @@ let store = {
                 {id: 4, message: "Yo!!!"},
                 {id: 5, message: "Yo!!!"},
             ],
-            newMessageText: 'Kurwa mat',
+            newMessageBody: 'Kurwa mat',
             dialogs: [
                 {id: 1, name: 'Dimich'},
                 {id: 2, name: 'Andrey'},
@@ -71,18 +71,17 @@ let store = {
             this._state.profilePage.newPostText = action.newText;
             this._callSubscriber(this._state)
         }
-        else if (action.type === ADD_MESSAGE) {
+        else if (action.type === SEND_MESSAGE) {
             let newMessage = {
                 id: 9,
-                message: this._state.dialogsPage.newMessageText
+                message: this._state.dialogsPage.newMessageBody
             }
-
             this._state.dialogsPage.messages.push(newMessage);
-            this._state.dialogsPage.newMessageText = "";
+            this._state.dialogsPage.newMessageBody = "";
             this._callSubscriber(this._state)
         }
-        else if (action.type === UPDATE_NEW_MESSAGE) {
-            this._state.dialogsPage.newMessageText = action.newText;
+        else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+            this._state.dialogsPage.newMessageBody = action.body;
             this._callSubscriber(this._state)
         }
     }
@@ -95,9 +94,9 @@ export const addPostActionCreator = () =>({type: ADD_POST})
 
 export const updateNewPostTextActionCreator = (value) =>({type: UPDATE_NEW_POST_TEXT, newText:value})
 
-export const addMessageActionCreator = () => ( {type: ADD_MESSAGE})
+export const sendMessageCreator = () => ( {type: SEND_MESSAGE})
 
-export const onMessageChangeActionCreator = (value) =>({type: UPDATE_NEW_MESSAGE,newText:value})
+export const updateNewMessageBodyCreator = (value) =>({type: UPDATE_NEW_MESSAGE_BODY,body:value})
 
 
 
