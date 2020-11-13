@@ -13,6 +13,7 @@ export const MyPosts = (props) => {
     };
 
     let onPostChange = () => {
+        debugger;
         let text = newPostElement.current.value;
         props.updateNewPostText(text);
     }
