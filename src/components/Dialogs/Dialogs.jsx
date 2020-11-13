@@ -18,7 +18,8 @@ const Dialogs = (props) => {
 
     let onMessageChange = () => {
         let text = newMessageElement.current.value;
-        props.dispatch({type:"UPDATE-NEW-MESSAGE", newText:text})
+        let action = {type:"UPDATE-NEW-MESSAGE", newText:text};
+        props.dispatch(action)
     }
 
     return (
