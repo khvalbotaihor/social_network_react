@@ -37,12 +37,17 @@ let store = {
 
         }
     },
-    getState(){
-        return this._state
-    },
     _callSubscriber() {
         console.log("State modified");
     },
+
+    getState(){
+        return this._state
+    },
+    subscribe(observer) {
+        this._callSubscriber = observer;  // pattern observer, наблюжатель, button.addEventListener similar to publisher-subscriber
+    },
+
     addPost() {
         debugger;
         let newPost = {
@@ -74,9 +79,7 @@ let store = {
         this._callSubscriber(this._state)
 
     },
-    subscribe(observer) {
-        this._callSubscriber = observer;  // pattern observer, наблюжатель, button.addEventListener similar to publisher-subscriber
-    }
+    dispatch(){}
 }
 
 export default store;
