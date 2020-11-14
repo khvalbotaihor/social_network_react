@@ -10,12 +10,10 @@ export const MyPosts = (props) => {
     let newPostElement = React.createRef();
 
     let addPost = () => {
-        debugger;
         props.dispatch(addPostActionCreator())
     };
 
     let onPostChange = () => {
-        debugger;
         let text = newPostElement.current.value;
         props.dispatch(updateNewPostTextActionCreator(text))
     }

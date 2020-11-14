@@ -8,7 +8,10 @@ export const Profile = (props) => {
     return (
         <div className={classes.content}>
             <ProfileInfo />
-            <MyPosts profilePage={props.profilePage} />
+            <MyPosts
+                profilePage={props.profilePage}
+                dispatch={props.dispatch}
+            />
         </div>
     )
 }

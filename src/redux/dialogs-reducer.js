@@ -33,7 +33,7 @@ const dialogsReducer = (state = initialState, action) => {
         }
         case UPDATE_NEW_MESSAGE_BODY:
             state.newMessageBody = action.body
-            return this.state
+            return state
         default:
             return state;
 
