@@ -1,0 +1,36 @@
+Index: src/redux/state.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/redux/state.js	(revision c563da2aad1793b8eeb27dd432b5194928810969)
++++ src/redux/state.js	(date 1605330727279)
+@@ -2,7 +2,6 @@
+ import dialogsReducer from "./dialogs-reducer";
+ import sidebarReducer from "./sidebar-reducer";
+ 
+-
+ let store = {
+     _state: {
+         profilePage: {
+@@ -57,17 +56,13 @@
+     dispatch(action) {
+ 
+         this._state.profilePage = profileReducer(this._state.profilePage, action)
+-            this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+-            this._state.sidebar = sidebarReducer(this._state.sidebar, action)
++        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
++        this._state.sidebar = sidebarReducer(this._state.sidebar, action)
+         this._callSubscriber(this._state)
+ 
+-
+     }
+-
+ 
+ }
+-
+-
+ 
+ export default store;
+ window.store = store;
+\ No newline at end of file
