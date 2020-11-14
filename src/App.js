@@ -15,12 +15,12 @@ const App = (props) => {
             <div className='app-wrapper'>
                 <Header/>
                 <Navbar friends={
-                    props.state.sidebar}/>
+                    props.state.sidebarPage}/>
                 <div className="app-wrapper-content">
                     <Route path="/dialogs"
                            render={() => <Dialogs
                                store={props.store}
-                           /> }/>
+                           />}/>
                     <Route path="/profile"
                            render={() => <Profile
                                profilePage={props.state.profilePage}
