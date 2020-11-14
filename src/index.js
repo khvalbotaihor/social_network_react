@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-let rerenderEntireTree = (state) =>{
+let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <React.StrictMode>
             <App
@@ -19,7 +19,7 @@ let rerenderEntireTree = (state) =>{
 }
 
 rerenderEntireTree(store.getState());
-store.subscribe(()=>{
+store.subscribe(() => {
     let state = store.getState();
     rerenderEntireTree(state);
 });
