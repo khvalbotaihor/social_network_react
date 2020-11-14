@@ -14,16 +14,15 @@ const App = (props) => {
         <BrowserRouter>
             <div className='app-wrapper'>
                 <Header/>
-                <Navbar friends={props.store}/>
+                <Navbar friends={props.state.sidebarReducer}/>
                 <div className="app-wrapper-content">
                     <Route path="/dialogs"
                            render={() => <Dialogs
-                               store={props.store}
+                               dialogsPage={props.state.dialogsReducer}
                            /> }/>
                     <Route path="/profile"
                            render={() => <Profile
-                               profilePage={props.state.profilePage}
-                               dispatch={props.dispatch}
+                               profilePage={props.state.profileReducer}
                            />}/>
                     <Route path="/music" component={Music}/>
                     <Route path="/news" component={News}/>
