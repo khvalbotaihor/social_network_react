@@ -6,6 +6,7 @@ import {  sendMessageCreator,  updateNewMessageBodyCreator} from "../../redux/di
 
 
 const Dialogs = (props) => {
+    debugger;
 
     let state = props.store.getState().dialogsPage;
 
