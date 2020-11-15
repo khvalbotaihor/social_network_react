@@ -8,6 +8,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 const App = (props) => {
     return (
@@ -17,8 +18,7 @@ const App = (props) => {
                 <Navbar friends={props.state.sidebar}/>
                 <div className="app-wrapper-content">
                     <Route path="/dialogs"
-                           render={() => <Dialogs
-                               dialogsPage={props.state.dialogsPage}
+                           render={() => <DialogsContainer
                                store={props.store}
                            /> }/>
                     <Route path="/profile"
