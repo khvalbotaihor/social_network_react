@@ -9,7 +9,9 @@ const Friends = (props) => {
         <div>
             <h1>Friends</h1>
             <div className={s.container}>
+
                 {friend}
+
             </div>
         </div>
     )
