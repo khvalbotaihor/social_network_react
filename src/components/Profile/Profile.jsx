@@ -10,7 +10,6 @@ export const Profile = (props) => {
             <ProfileInfo />
             <MyPostsContainer
                 store={props.store}
-
             />
         </div>
     )
