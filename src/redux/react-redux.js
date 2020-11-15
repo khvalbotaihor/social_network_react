@@ -1,12 +1,14 @@
-import {createStore} from "redux";
+import {combineReducers, createStore} from "redux";
 import sidebarReducer from "./sidebar-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import profileReducer from "./profile-reducer";
 
-let reducer = ({
+let reducer = combineReducers({
     profilePage:profileReducer,
     dialogsPage:dialogsReducer,
     sidebar: sidebarReducer
 })
 
-let store = createStore(reducer);
+const store = createStore(reducer);
+
+export default store;
