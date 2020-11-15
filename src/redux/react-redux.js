@@ -9,4 +9,4 @@ let reducer = ({
     sidebar: sidebarReducer
 })
 
-let store = createStore();
+let store = createStore(reducer);
