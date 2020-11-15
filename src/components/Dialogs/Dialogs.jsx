@@ -17,10 +17,12 @@ const Dialogs = (props) => {
 
 
     const onSendMessageClick = () => {
+        debugger;
         props.store.dispatch(sendMessageCreator())
     }
 
     let onNewMessageChange = (e) => {
+        debugger;
         let body = e.target.value;
         props.store.dispatch(updateNewMessageBodyCreator(body))
     }
