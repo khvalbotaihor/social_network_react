@@ -13,12 +13,10 @@ const Dialogs = (props) => {
     let messagesElements = state.messages.map((el, index) => <Message message={el.message} key={index}/>)
 
     const onSendMessageClick = () => {
-        debugger;
         props.store.dispatch(sendMessageCreator())
     }
 
     let onNewMessageChange = (e) => {
-        debugger;
         let body = e.target.value;
         props.store.dispatch(updateNewMessageBodyCreator(body))
     }
