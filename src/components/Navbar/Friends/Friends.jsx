@@ -1,19 +1,34 @@
 import React from 'react';
 import s from './Friends.module.css'
 import Friend from "./Friend/Friend";
+import StoreContext from "../../../StoreContext";
 
-const Friends = (props) => {
-    let friend = props.friends.map((el, index) => <Friend name={el.name} key={index}/>)
-
+const Friends = () => {
     return (
-        <div>
-            <h1>Friends</h1>
-            <div className={s.container}>
+        <StoreContext.Consumer>{(store)=>{
+            let state = store.getState();
 
-                {friend}
+            let friend = state.sidebar.friends.map((el, index) => <Friend name={el.name} key={index}/>)
 
-            </div>
-        </div>
+            return (
+                <div>
+                    <h1>Friends</h1>
+                    <div className={s.container}>
+                        {friend}
+                    </div>
+                </div>
+            )
+        }}</StoreContext.Consumer>
+
+
+
+
+
+
+
+
+
+
     )
 }
 

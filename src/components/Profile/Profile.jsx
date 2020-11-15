@@ -4,12 +4,11 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 
-export const Profile = (props) => {
+export const Profile = () => {
     return (
         <div className={classes.content}>
             <ProfileInfo />
-            <MyPostsContainer
-                store={props.store} />
+            <MyPostsContainer />
         </div>
     )
 }
