@@ -7,4 +7,4 @@ export const Provider = (props) => {
         {props.children}
     </StoreContext.Provider>
     }
-
+export default StoreContext;
