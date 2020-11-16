@@ -20,6 +20,3 @@ let rerenderEntireTree = (state) => {
 }
 
 rerenderEntireTree();
-store.subscribe(() => {
-    rerenderEntireTree()
-});
