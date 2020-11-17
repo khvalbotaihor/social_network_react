@@ -5,10 +5,8 @@ import userPhoto from '../../assets/user.png';
 
 const Users = (props) => {
     if (props.users.length === 0) {
-        console.log(props.users.length)
         axios.get("https://social-network.samuraijs.com/api/1.0/users")
             .then(response => {
-                debugger;
                 props.setUsers(response.data.items)
             });
     }
