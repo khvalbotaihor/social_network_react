@@ -6,14 +6,17 @@ import * as axios from "axios";
 
 class Users extends React.Component {
 
-    constructor(props) {
-        super(props);
-            axios.get("https://social-network.samuraijs.com/api/1.0/users")
-                .then(response => {
-                    this.props.setUsers(response.data.items)
-                });
-    }
+// component did mount
+    // component did update
+    // component will mount
+    // component will unmount
 
+componentDidMount() {
+    axios.get("https://social-network.samuraijs.com/api/1.0/users")
+        .then(response => {
+            this.props.setUsers(response.data.items)
+        });
+}
 
     render() {
         return (
