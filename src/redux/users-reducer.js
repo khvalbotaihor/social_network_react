@@ -3,7 +3,10 @@ const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
 
 const initialState = {
-    users: [ ]
+    users: [ ],
+    pageSize:5,
+    totalUsersCount:120,
+    currentPage: 2
 }
 
 const usersReducer = (state = initialState, action) => {
