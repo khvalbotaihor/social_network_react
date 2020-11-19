@@ -39,35 +39,3 @@ export const usersAPI = {
 }
 
 
-/*export const getUsers = (currentPage = 1, pageSize = 10) => {
-    return instance.get(`users?page=${currentPage}&count=${pageSize}`)
-        .then(response => {
-            return response.data
-        })
-}*/
-
-/*export const authMe = () => {
-    return instance.get(`auth/me`).then(response => {
-        return response.data
-    })
-}*/
-
-/*export const getUser = (userId) => {
-    return instance.get(`profile/` + userId)
-        .then(response => {
-            return response.data
-        })
-}*/
-
-/*export const followUser = (id) => {
-    return instance.post(`follow/${id}`).then(response => {
-        return response.data
-    })
-}*/
-
-/*
-export const unFollowUser = (id) => {
-    return instance.delete(`follow/${id}`).then(response => {
-        return response.data
-    })
-}*/
