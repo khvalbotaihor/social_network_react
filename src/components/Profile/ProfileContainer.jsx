@@ -1,6 +1,5 @@
 import React from "react";
 import Profile from "./Profile";
-import * as axios from "axios";
 import {connect} from "react-redux";
 import {setUserProfile} from "../../redux/profile-reducer";
 import {withRouter} from "react-router-dom";
@@ -13,8 +12,8 @@ componentDidMount() {
     let userId = this.props.match.params.userId;
     if (!userId){userId=2  }
     getUser(userId)
-        .then(response => {
-            this.props.setUserProfile(response.data)
+        .then(data => {
+            this.props.setUserProfile(data)
 })
 }
 
