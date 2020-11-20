@@ -19,7 +19,7 @@ const Dialogs = (props) => {
         props.updateNewMessageBody(body);
     }
 
-    if (props.isAuth === false) return  <Redirect to="/login"/>
+    if (!props.isAuth) return  <Redirect to="/login"/>
 
 
     return (
