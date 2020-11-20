@@ -2,6 +2,7 @@ import React from "react";
 import s from './ProfileInfo.module.css';
 import Preloader from "../../../components/Common/Preloader/preloader"
 import {NavLink, Route} from "react-router-dom";
+import ProfileStatus from "./ProfileStatus"
 
 const ProfileInfo = (props) => {
 
@@ -10,12 +11,12 @@ const ProfileInfo = (props) => {
     }
     return (
         <div >
-            <div>
+            {/*<div>
                 <img src="https://i.pinimg.com/originals/31/d8/07/31d8075c82022692d2056edebd26d995.jpg" />
-            </div>
+            </div>*/}
             <div className={s.descriptionBlock}>
                 <img src={props.profile.photos.large} />
-                ava + description
+                <ProfileStatus />
 
                 <hr/>
                 <div>About me: {props.profile.aboutMe}</div>
