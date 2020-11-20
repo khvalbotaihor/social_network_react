@@ -6,11 +6,9 @@ import {Redirect} from "react-router-dom";
 import {WithAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 
-
 let mapStateToProps = (state) => {
     return {
         dialogsPage: state.dialogsPage,
-        isAuth: state.auth.isAuth
     }
 }
 
