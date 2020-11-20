@@ -53,7 +53,7 @@ export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 
 export const getUserData = (userId) => {
      return (dispatch) =>{
-         usersAPI.getUser(userId)
+         usersAPI.getProfile(userId)
              .then(data => {
                  dispatch(setUserProfile(data))
              })
