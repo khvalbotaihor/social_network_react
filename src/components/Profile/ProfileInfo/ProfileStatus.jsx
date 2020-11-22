@@ -5,7 +5,6 @@ class ProfileStatus extends React.Component {
 
     state = {
         editMode: false,
-        title: ""
     }
 
     activateEditMode= ()=>{
