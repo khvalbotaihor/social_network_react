@@ -14,7 +14,7 @@ const initialState = {
     ],
     newPostText: 'it-kamasutra.com',
     profile:null,
-    status: "kurwa mat''''"
+    status: ""
 }
 
 const profileReducer = (state = initialState, action) => {
