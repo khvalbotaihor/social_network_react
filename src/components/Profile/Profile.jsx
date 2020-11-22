@@ -10,7 +10,8 @@ export const Profile = (props) => {
             <ProfileInfo
                 profile={props.profile}
                 status={props.status}
-                updateStatus={props.updateStatus}/>
+                updateStatus={props.updateStatus}
+            />
             <MyPostsContainer />
         </div>
     )
