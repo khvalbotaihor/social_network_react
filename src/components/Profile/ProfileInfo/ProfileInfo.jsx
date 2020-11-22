@@ -5,7 +5,6 @@ import {NavLink, Route} from "react-router-dom";
 import ProfileStatus from "./ProfileStatus"
 
 const ProfileInfo = (props) => {
-
     if (!props.profile){
         return <Preloader />
     }
