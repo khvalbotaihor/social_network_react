@@ -18,7 +18,7 @@ class ProfileStatus extends React.Component {
         this.setState({
             editMode: false
         })
-        this.props.updateStatus(this.state.status)
+        this.props.updateStatus(this.state.status);
     }
 
     onStatusChange = (e) => {
@@ -26,6 +26,9 @@ class ProfileStatus extends React.Component {
     }
 
     render() {
+        console.log("local state: " + this.state.status)
+        console.log("global state: " + this.props.status)
+
         return (
             <div>
                 {this.state.editMode
@@ -37,7 +40,7 @@ class ProfileStatus extends React.Component {
                         ></input>
                     </div>
                     : <div>
-                        <span onDoubleClick={this.activateEditMode}>{this.props.status}</span>
+                        <span onDoubleClick={this.activateEditMode}>{this.props.status || "-----"}</span>
                     </div>
                 }
 
