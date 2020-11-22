@@ -62,8 +62,8 @@ export const setStatus = (status) => ({type: SET_STATUS, status})
 export const getUserProfile = (userId) => {
      return (dispatch) =>{
          usersAPI.getProfile(userId)
-             .then(data => {
-                 dispatch(setUserProfile(data))
+             .then(response => {
+                 dispatch(setUserProfile(response.data))
              })
     }
 }
