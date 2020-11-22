@@ -5,7 +5,6 @@ const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const SET_STATUS = "SET_STATUS";
 
-
 const initialState = {
     posts: [
         {id: 1, message: "Hi, how are you?", likesCount: 12},
@@ -15,7 +14,7 @@ const initialState = {
     ],
     newPostText: 'it-kamasutra.com',
     profile:null,
-    status: "empty profile status"
+    status: "kurwa mat''''"
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -57,7 +56,7 @@ const profileReducer = (state = initialState, action) => {
 export const addPostActionCreator = () => ({type: ADD_POST})
 export const updateNewPostTextActionCreator = (value) => ({type: UPDATE_NEW_POST_TEXT, newText: value})
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
-export const setStatus = (status) => ({type: SET_STATUS, status})
+export const setStatus= (status) => ({type: SET_STATUS, status})
 
 export const getUserProfile = (userId) => {
      return (dispatch) =>{
@@ -67,7 +66,38 @@ export const getUserProfile = (userId) => {
              })
     }
 }
+
 export const getStatus = (userId) => {
+     return (dispatch) =>{
+         profileAPI.getStatus(userId)
+             .then(response => {
+                 debugger;
+                 dispatch(setStatus(response.data))
+             })
+    }
+}
+export const updateStatus = (status) => {
+     return (dispatch) =>{
+         profileAPI.updateStatus(status)
+             .then(response => {
+                 if (response.data.resultCode===0){
+                     dispatch(setStatus(status))
+                 }
+             })
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/*export const getStatus = (userId) => {
      return (dispatch) =>{
          profileAPI.getStatus(userId)
              .then(data => {
@@ -86,6 +116,6 @@ export const updateStatus = (userId) => {
                  }
              })
     }
-}
+}*/
 
 export default profileReducer;
