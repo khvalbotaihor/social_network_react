@@ -2,7 +2,8 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {Redirect} from "react-router-dom";
+import {Field, reduxForm} from "redux-form";
+import Login from "./Message/TextArea/TextArea"
 
 const Dialogs = (props) => {
     let state = props.dialogsPage;
@@ -28,12 +29,10 @@ const Dialogs = (props) => {
                 {messagesElements}
 
                 <div className={s.textArea}>
-                    <div>
-                        <textarea
-                            value={state.newMessageBody}
-                            onChange={onNewMessageChange}
-                        ></textarea>
-                    </div>
+                    <Login
+                        value={state.newMessageBody}
+                        onChange={onNewMessageChange}
+                    />
                     <div>
                         <button onClick={onSendMessageClick}>Add Message</button>
                     </div>
@@ -43,5 +42,12 @@ const Dialogs = (props) => {
         </div>
     )
 }
+
+
+
+
+
+
+
 
 export default Dialogs;
