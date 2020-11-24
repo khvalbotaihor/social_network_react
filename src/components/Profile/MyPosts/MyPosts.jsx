@@ -1,26 +1,22 @@
 import React from "react";
 import classes from "./MyPosts.module.css";
 import Post from "./Post/MyPosts";
+import TextArea from "../ProfileInfo/Input";
 
 export const MyPosts = (props) => {
     let postsElement =
         props.posts.map((p, index) => <Post message={p.message} likesCount={p.likesCount} key={index}/>)
 
-    let newPostElement = React.createRef();
-
-    let onAddPost = () => {
-        props.addPost();
-    };
-
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
-        props.updateNewPostText(text);
-    }
 
     return (
+
         <div className={classes.postsBlock}>
             <h3>My posts</h3>
-            <div>
+            <TextArea value={props.newPostText}
+                      addPost={props.addPost}
+                      updateNewPostText={props.updateNewPostText}
+            />
+{/*            <div>
                 <div>
                     <textarea
                         ref={newPostElement}
@@ -30,7 +26,7 @@ export const MyPosts = (props) => {
                 <div>
                     <button onClick={onAddPost}>Add post</button>
                 </div>
-            </div>
+            </div>*/}
             <div className={classes.item}>
                 {postsElement}
             </div>

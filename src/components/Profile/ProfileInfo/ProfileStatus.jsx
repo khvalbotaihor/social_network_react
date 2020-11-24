@@ -51,7 +51,7 @@ class ProfileStatus extends React.Component {
                                onChange={this.onStatusChange}
                         ></input>
                     </div>
-                    : <div>
+                    : <div>'
                         <span onDoubleClick={this.activateEditMode}>{this.props.status || "-----"}</span>
                     </div>
                 }
