@@ -7,10 +7,8 @@ export const MyPosts = (props) => {
     let postsElement =
         props.posts.map((p, index) => <Post message={p.message} likesCount={p.likesCount} key={index}/>)
 
-    let newPostElement = React.createRef();
-
-    let addNewPost = (value) => {
-        props.addPost(value.addNewPost);
+    let onAddPost = (value) => {
+        props.addPost(value.NewPostText);
 
     }
 
@@ -19,7 +17,7 @@ export const MyPosts = (props) => {
         <div className={classes.postsBlock}>
             <h3>My posts</h3>
 
-            <AddNewPostFormRedux onSubmit={addNewPost}/>
+            <AddNewPostFormRedux onSubmit={onAddPost}/>
 
             <div className={classes.item}>
                 {postsElement}
@@ -28,13 +26,13 @@ export const MyPosts = (props) => {
     )
 }
 
-const AddNewForm = (props) => {
+const AddNewPostForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
                     <Field
                         placeholder="Add new post"
-                        name="addNewPost"
+                        name="NewPostText"
                         component="textarea"
 
                     />
@@ -46,7 +44,7 @@ const AddNewForm = (props) => {
     )
 }
 
-const AddNewPostFormRedux = reduxForm({form: "addNewPost"})(AddNewForm)
+const AddNewPostFormRedux = reduxForm({form: "addNewPost"})(AddNewPostForm)
 
 
 export default MyPosts;
