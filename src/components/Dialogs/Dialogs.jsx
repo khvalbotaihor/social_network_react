@@ -44,7 +44,6 @@ const AddMessageForm = (props) => {
                     placeholder="Enter your message"
                     name="newMessageBody"
                     component="textarea"
-
                 />
             </div>
             <div>
