@@ -39,5 +39,16 @@ export const getAuthUserData = () =>{
             });
     }
 }
+export const login = (email, password, rememberMe) =>{
+    return (dispatch) => {
+        authAPI.authMe()
+            .then(data => {
+                if (data.resultCode === 0) {
+                    let {id, email, login} = data.data;
+                    dispatch(setAuthUserData(id, email, login));
+                }
+            });
+    }
+}
 
 export default authReducer;
