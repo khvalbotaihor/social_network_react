@@ -108,15 +108,13 @@ export const follow = (userId) => {
     }
 }
 export const unFollow = (userId) => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(toggleFollowingInProgress(true, userId));
-        usersAPI.unFollowUser(userId)
-            .then(data => {
-                if (data.resultCode === 0) {
-                    dispatch(unfollowSuccess(userId));
-                }
-                dispatch(toggleFollowingInProgress(false, userId));
-            });
+        const data = await usersAPI.unFollowUser(userId);
+        if (data.resultCode === 0) {
+            dispatch(unfollowSuccess(userId));
+        }
+        dispatch(toggleFollowingInProgress(false, userId));
     }
 }
 
