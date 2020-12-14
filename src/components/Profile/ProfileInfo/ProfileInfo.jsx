@@ -5,24 +5,21 @@ import {NavLink, Route} from "react-router-dom";
 import ProfileStatus from "./ProfileStatus"
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
-const ProfileInfo = (props) => {
-    if (!props.profile){
+const ProfileInfo = ({profile, status, updateStatus}) => {
+    if (!profile){
         return <Preloader />
     }
     return (
         <div >
-            {/*<div>
-                <img src="https://i.pinimg.com/originals/31/d8/07/31d8075c82022692d2056edebd26d995.jpg" />
-            </div>*/}
             <div className={s.descriptionBlock}>
-                <img src={props.profile.photos.large} />
-                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
+                <img src={profile.photos.large} />
+                <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
 
                 <hr/>
-                <div>About me: {props.profile.aboutMe}</div>
-                <div>Fullname: {props.profile.fullName}</div>
-                <div>Looking for a job : {props.profile.lookingForAJob.toString()}</div>
-                <div>Job secription: {props.profile.lookingForAJobDescription}</div>
+                <div>About me: {profile.aboutMe}</div>
+                <div>Fullname: {profile.fullName}</div>
+                <div>Looking for a job : {profile.lookingForAJob.toString()}</div>
+                <div>Job secription: {profile.lookingForAJobDescription}</div>
                 <div> <a to="facebook.com" target="_blank">Facebook</a></div>
                 <div> <a href="github.com" target="_blank">github</a></div>
                 <div><a href="instagra.com/sds" target="_blank">instagram</a></div>
