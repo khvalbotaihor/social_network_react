@@ -4,31 +4,30 @@ import styles from "./users.module.css";
 import {NavLink} from "react-router-dom";
 
 let User = ({user, followingInProgress, unFollow, follow}) => {
-    let u = user;
     return (
         <div>
                 <span>
                     <div>
-                        <NavLink to={'/profile/' + u.id}>
-                             <img src={u.photos.small != null ? u.photos.small : userPhoto}
+                        <NavLink to={'/profile/' + user.id}>
+                             <img src={user.photos.small != null ? user.photos.small : userPhoto}
                                   className={styles.userPhoto}/>
                         </NavLink>
                     </div>
                     <div>
-                        {u.followed
-                            ? <button disabled={followingInProgress.some(id => id === u.id)} onClick={() => {
-                                unFollow(u.id)
+                        {user.followed
+                            ? <button disabled={followingInProgress.some(id => id === user.id)} onClick={() => {
+                                unFollow(user.id)
                             }}>
                                 Unfollow</button>
-                            : <button disabled={followingInProgress.some(id => id === u.id)} onClick={() => {
-                                follow(u.id)
+                            : <button disabled={followingInProgress.some(id => id === user.id)} onClick={() => {
+                                follow(user.id)
                             }}>Follow</button>}
                     </div>
                 </span>
             <span>
                     <span>
-                        <div>{u.name}</div>
-                        <div>{u.status}</div>
+                        <div>{user.name}</div>
+                        <div>{user.status}</div>
                     </span>
                     <span>
                         <div>{"u.location.country"}</div>
