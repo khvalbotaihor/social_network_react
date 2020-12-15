@@ -13,7 +13,7 @@ const ProfileInfo = ({profile, status, updateStatus}) => {
     return (
         <div >
             <div className={s.descriptionBlock}>
-                <img src={profile.photos.large || userPhoto } />
+                <img src={profile.photos.large || userPhoto } className={s.mainPhoto}/>
                 <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
 
                 <hr/>
