@@ -1,8 +1,6 @@
 import React from "react";
 import s from './ProfileInfo.module.css';
 import Preloader from "../../../components/Common/Preloader/preloader"
-import {NavLink, Route} from "react-router-dom";
-import ProfileStatus from "./ProfileStatus"
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import userPhoto from "../../../assets/user.png";
 
@@ -13,7 +11,7 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
 
     const onMainPhotoSelected = (e) =>{
        if ( e.target.files.length ){
-        savePhoto(e.target[0]);
+           savePhoto(e.target.files[0]);
        }
     }
 
