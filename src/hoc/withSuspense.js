@@ -1,8 +1,9 @@
 import React from "react";
 
 export const withSuspense = (Component) => {
-    return () => {
-       return <Component {...props} />
-
+    return (props) => {
+        return <React.Suspense fallback={<div>Loading...</div>}>
+            <Component {...props} />
+        </React.Suspense>
     }
 }

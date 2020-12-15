@@ -13,6 +13,7 @@ import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "../src/components/Common/Preloader/preloader"
 import store from "./redux/react-redux";
+import {withSuspense} from "./hoc/withSuspense";
 
 
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
@@ -36,23 +37,15 @@ class App extends React.Component {
                 <Navbar/>
                 <div className="app-wrapper-content">
                     <Route path="/dialogs"
-                           render={() => {
-                               return  <React.Suspense fallback={<div>Loading...</div>}>
-                                   <DialogsContainer/>
-                               </React.Suspense>
-                           }}/>
+                           render={withSuspense(DialogsContainer)}  />
                     <Route path="/profile/:userId?"
-                           render={() => {
-                               return  <React.Suspense fallback={<div>Loading...</div>}>
-                                   <ProfileContainer/>
-                               </React.Suspense>
-                           }}/>
+                           render={withSuspense(ProfileContainer)}  />
                     <Route path="/users"
                            render={() => <UsersContainer/>}/>
                     <Route path="/music" component={Music}/>
                     <Route path="/news" component={News}/>
                     <Route path="/settings" component={Settings}/>
-                    <Route path="/login" render={() => <Login/>}></Route>
+                    <Route path="/login" render={() => <Login/>} />
                 </div>
             </div>
         );
