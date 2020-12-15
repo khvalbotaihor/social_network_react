@@ -4,6 +4,7 @@ import Preloader from "../../../components/Common/Preloader/preloader"
 import {NavLink, Route} from "react-router-dom";
 import ProfileStatus from "./ProfileStatus"
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+import userPhoto from "../../../assets/user.png";
 
 const ProfileInfo = ({profile, status, updateStatus}) => {
     if (!profile){
@@ -12,7 +13,7 @@ const ProfileInfo = ({profile, status, updateStatus}) => {
     return (
         <div >
             <div className={s.descriptionBlock}>
-                <img src={profile.photos.large} />
+                <img src={profile.photos.large || userPhoto } />
                 <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
 
                 <hr/>
