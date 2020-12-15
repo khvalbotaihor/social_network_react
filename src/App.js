@@ -36,9 +36,17 @@ class App extends React.Component {
                 <Navbar/>
                 <div className="app-wrapper-content">
                     <Route path="/dialogs"
-                           render={() => <DialogsContainer/>}/>
+                           render={() => {
+                               return  <React.Suspense fallback={<div>Loading...</div>}>
+                                   <DialogsContainer/>
+                               </React.Suspense>
+                           }}/>
                     <Route path="/profile/:userId?"
-                           render={() => <ProfileContainer/>}/>
+                           render={() => {
+                               return  <React.Suspense fallback={<div>Loading...</div>}>
+                                   <ProfileContainer/>
+                               </React.Suspense>
+                           }}/>
                     <Route path="/users"
                            render={() => <UsersContainer/>}/>
                     <Route path="/music" component={Music}/>
