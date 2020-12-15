@@ -5,7 +5,6 @@ import {BrowserRouter, Route, withRouter} from "react-router-dom";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
-import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
@@ -15,6 +14,9 @@ import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "../src/components/Common/Preloader/preloader"
 import store from "./redux/react-redux";
+
+
+const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
 
 
 class App extends React.Component {
