@@ -6,13 +6,15 @@ import ProfileStatus from "./ProfileStatus"
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import userPhoto from "../../../assets/user.png";
 
-const ProfileInfo = ({profile, status, updateStatus, isOwner}) => {
+const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
     if (!profile){
         return <Preloader />
     }
 
     const onMainPhotoSelected = (e) =>{
-
+       if ( e.target.files.length ){
+        savePhoto(e.target[0]);
+       }
     }
 
     return (
