@@ -6,7 +6,7 @@ import userPhoto from "../../../assets/user.png";
 import ProfileDataForm from "./ProfileDataForm";
 
 const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, saveProfile}) => {
-   const [editMode, setEditMode] = useState(false)
+    const [editMode, setEditMode] = useState(false)
 
 
     if (!profile) {
@@ -19,9 +19,11 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
         }
     }
 
-    const onSubmit = (formData) =>{
-        saveProfile(formData);
-        //setEditMode(false)
+    const onSubmit =  (formData) => {
+         saveProfile(formData).then(()=>{
+             setEditMode(false)
+
+         })
     }
 
 
@@ -33,7 +35,9 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
 
                 {editMode
                     ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit}/>
-                    : <ProfileData profile={profile} isOwner={isOwner} goToEditMode={()=>{setEditMode(true)}}/>}
+                    : <ProfileData profile={profile} isOwner={isOwner} goToEditMode={() => {
+                        setEditMode(true)
+                    }}/>}
 
                 <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
 
@@ -46,7 +50,9 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
 const ProfileData = ({profile, isOwner, goToEditMode}) => {
     return (
         <div>
-            {isOwner && <div><button onClick={goToEditMode}>edit</button></div>}
+            {isOwner && <div>
+                <button onClick={goToEditMode}>edit</button>
+            </div>}
             <div>
                 <b>Fullname</b>: {profile.fullName}</div>
             <div>
