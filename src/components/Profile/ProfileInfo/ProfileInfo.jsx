@@ -59,7 +59,8 @@ const ProfileData = ({profile, isOwner, goToEditMode}) => {
 
             </div>
 
-        </div>)
+        </div>
+    )
 }
 
 
