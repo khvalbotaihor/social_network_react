@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import s from './ProfileInfo.module.css';
 import Preloader from "../../../components/Common/Preloader/preloader"
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import userPhoto from "../../../assets/user.png";
 
 const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
+   const [editMode, setEditMode] = useState(false)
+
+
     if (!profile) {
         return <Preloader/>
     }
@@ -15,13 +18,18 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
         }
     }
 
+
+
     return (
         <div>
             <div className={s.descriptionBlock}>
                 <img src={profile.photos.large || userPhoto} className={s.mainPhoto}/>
                 {isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>}
 
-                <ProfileData profile={profile}/>
+                {editMode
+                    ? <ProfileDataForm profile={profile}/>
+                    : <ProfileData profile={profile} isOwner={isOwner} goToEditMode={()=>{setEditMode(true)}}/>}
+
                 <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
 
 
@@ -30,13 +38,12 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
     )
 }
 
-const ProfileData = ({profile}) => {
+const ProfileData = ({profile, isOwner, goToEditMode}) => {
     return (
         <div>
-
+            {isOwner && <div><button onClick={goToEditMode}>edit</button></div>}
             <div>
                 <b>Fullname</b>: {profile.fullName}</div>
-
             <div>
                 <b>Looking for a job</b> : {profile.lookingForAJob ? "yes" : "no"}
             </div>
@@ -50,6 +57,13 @@ const ProfileData = ({profile}) => {
             })}
 
             </div>
+
+        </div>)
+}
+const ProfileDataForm = ({profile}) => {
+    return (
+        <div>
+            Form
 
         </div>)
 }
