@@ -3,6 +3,7 @@ import s from './ProfileInfo.module.css';
 import Preloader from "../../../components/Common/Preloader/preloader"
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import userPhoto from "../../../assets/user.png";
+import ProfileDataForm from "./ProfileDataForm";
 
 const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
    const [editMode, setEditMode] = useState(false)
@@ -60,13 +61,7 @@ const ProfileData = ({profile, isOwner, goToEditMode}) => {
 
         </div>)
 }
-const ProfileDataForm = ({profile}) => {
-    return (
-        <div>
-            Form
 
-        </div>)
-}
 
 const Contact = ({contactTitle, contactValue}) => {
     return <div className={s.contact}><b>{contactTitle} </b>: {contactValue} </div>
