@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Navbar from "./components/Navbar/Navbar";
-import {HashRouter, Route, withRouter} from "react-router-dom";
+import {BrowserRouter, Route, Switch, withRouter} from "react-router-dom";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
@@ -28,7 +28,6 @@ class App extends React.Component {
     render() {
         if (!this.props.initialized) {
             return <Preloader/>
-
         }
 
         return (
@@ -36,16 +35,19 @@ class App extends React.Component {
                 <HeaderContainer/>
                 <Navbar/>
                 <div className="app-wrapper-content">
-                    <Route path="/dialogs"
-                           render={withSuspense(DialogsContainer)}  />
-                    <Route path="/profile/:userId?"
-                           render={withSuspense(ProfileContainer)}  />
-                    <Route path="/users"
-                           render={() => <UsersContainer/>}/>
-                    <Route path="/music" component={Music}/>
-                    <Route path="/news" component={News}/>
-                    <Route path="/settings" component={Settings}/>
-                    <Route path="/login" render={() => <Login/>} />
+                    <Switch>
+                        <Route path="/dialogs"
+                               render={withSuspense(DialogsContainer)}/>
+                        <Route path="/profile/:userId?"
+                               render={withSuspense(ProfileContainer)}/>
+                        <Route path="/users"
+                               render={() => <UsersContainer/>}/>
+                        <Route path="/music" component={Music}/>
+                        <Route path="/news" component={News}/>
+                        <Route path="/settings" component={Settings}/>
+                        <Route path="*" render={() => <div>404 NOT FOUND</div>}/>
+                        <Route path="/login" render={() => <Login/>}/>
+                    </Switch>
                 </div>
             </div>
         );
@@ -60,12 +62,12 @@ let AppContainer = compose(
     withRouter,
     connect(mapStateToProps, {initializeApp}))(App);
 
-const SamuraiJSApp = (props) =>{
-    return <HashRouter >
+const SamuraiJSApp = (props) => {
+    return <BrowserRouter>
         <Provider store={store}>
-            <AppContainer />
+            <AppContainer/>
         </Provider>
-    </HashRouter>
+    </BrowserRouter>
 }
 
 export default SamuraiJSApp;
