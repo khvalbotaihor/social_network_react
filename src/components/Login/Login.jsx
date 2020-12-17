@@ -15,6 +15,7 @@ const LoginForm = ({handleSubmit, error, captchaUrl}) => {
             {createField(null, "rememberMe", Input,null ,{type: "checkbox"}, "remember me")}
 
             {captchaUrl && <img src={captchaUrl}/>}
+            {captchaUrl &&  createField("Symbols", "captcha", Input,[required] )}
 
 
             {error && <div className={style.formSummaryError}>
@@ -31,7 +32,7 @@ const LoginReduxForm = reduxForm({form: "login"})(LoginForm)
 
 const Login = (props) => {
     const onSubmit = (formData) => {
-        props.login(formData.email, formData.password, formData.rememberMe)
+        props.login(formData.email, formData.password, formData.rememberMe, formData.captcha)
     }
     if (props.isAuth) {
         return <Redirect to={"/profile"}/>
