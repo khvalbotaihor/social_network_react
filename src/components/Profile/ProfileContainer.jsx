@@ -1,7 +1,7 @@
 import React from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {withRouter} from "react-router-dom";
+import {Redirect, withRouter} from "react-router-dom";
 import {getStatus, getUserProfile, savePhoto, saveProfile, updateStatus} from "../../redux/profile-reducer";
 import {compose} from "redux";
 
@@ -22,13 +22,16 @@ class ProfileContainer extends React.Component {
     }
 
     componentDidMount() {
+        console.log(    "componentDidMount")
         this.refreshProfile()
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.props.match.params.userId != prevProps.match.params.userId){
-            this.refreshProfile()
-
+            this.refreshProfile();
+            if (this.props.match.params.userId===undefined){
+                return <Redirect to={"login"} />
+            }
         }
     }
 

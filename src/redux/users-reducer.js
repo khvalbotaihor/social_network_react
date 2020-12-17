@@ -1,5 +1,6 @@
 import {usersAPI} from "../api/api";
 import {updateObjectInArray} from "../utils/object-helpers";
+import {stopSubmit} from "redux-form";
 
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
@@ -96,6 +97,10 @@ const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) =>
     const data = await apiMethod(userId);
     if (data.resultCode === 0) {
         dispatch(actionCreator(userId));
+    }else {
+        debugger;
+        console.log()
+        //dispatch(stopSubmit("edit-profile", {_error: response.data.messages[0]}))
     }
     dispatch(toggleFollowingInProgress(false, userId));
 
@@ -103,11 +108,13 @@ const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) =>
 
 
 export const follow = (userId) => {
+    debugger
     return async (dispatch) => {
         followUnfollowFlow(dispatch, userId, usersAPI.followUser.bind(usersAPI), followSuccess)
     }
 }
 export const unFollow = (userId) => {
+    debugger
     return async (dispatch) => {
         followUnfollowFlow(dispatch, userId, usersAPI.unFollowUser.bind(usersAPI), unfollowSuccess)
     }
